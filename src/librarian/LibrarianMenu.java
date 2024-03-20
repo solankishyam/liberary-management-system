@@ -35,6 +35,9 @@ public class LibrarianMenu {
                 case 5:
                     ReturnBook.returnBook();
                     break;
+                case 6:
+                    ViewBorrowedBooks.viewBorrowedBooks();
+                    break;
                 case 7:
                     System.out.println("Exiting librarian menu...");
                     common.Base.base();
