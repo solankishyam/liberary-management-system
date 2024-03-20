@@ -30,7 +30,7 @@ public class LibrarianMenu {
                     RemoveBook.removeBook();
                     break;
                 case 4:
-                    // Call method to return a book
+                    IssueBook.issueBook();
                     break;
                 case 5:
                     // Call method to view borrowed books
