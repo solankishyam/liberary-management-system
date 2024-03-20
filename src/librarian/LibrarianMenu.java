@@ -33,7 +33,7 @@ public class LibrarianMenu {
                     IssueBook.issueBook();
                     break;
                 case 5:
-                    // Call method to view borrowed books
+                    ReturnBook.returnBook();
                     break;
                 case 7:
                     System.out.println("Exiting librarian menu...");
