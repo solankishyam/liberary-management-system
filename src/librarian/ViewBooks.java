@@ -18,13 +18,13 @@ public class ViewBooks {
             // Get the number of columns in the result set
             int columnCount = resultSet.getMetaData().getColumnCount();
 
-            System.out.print("\n------------------------------------------------------------------------------------------------------------------------------------------------------\n");
+            System.out.print("\n-----------------------------------------------------------------------------------------------------------------------\n");
 
             // Print table header with indentation
             for (int i = 1; i <= columnCount; i++) {
                 System.out.print(String.format("| %-20s |", resultSet.getMetaData().getColumnName(i)));
             }
-            System.out.print("\n--------------------------------------------------------------------------------------------------------------------------------------------------\n");
+            System.out.print("\n-----------------------------------------------------------------------------------------------------------------------\n");
             // Print table data with indentation
             while (resultSet.next()) {
                 for (int i = 1; i <= columnCount; i++) {
@@ -33,7 +33,7 @@ public class ViewBooks {
                 System.out.println();
             }
 
-            System.out.print("--------------------------------------------------------------------------------------------------------------------------------------------------\n");
+            System.out.print("\n-----------------------------------------------------------------------------------------------------------------------\n");
 
 
             // Close the resources

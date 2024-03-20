@@ -21,13 +21,14 @@ public class ViewBorrowedBooks {
             // Get the number of columns in the result set
             int columnCount = resultSet.getMetaData().getColumnCount();
 
-            System.out.print("\n------------------------------------------------------------------------------------------------------------------------------------------------------\n");
+            System.out.print("-----------------------------------------------------------------------------------------------------------------------------------------------------------------------\n");
 
             // Print table header with indentation
             for (int i = 1; i <= columnCount; i++) {
                 System.out.print(String.format("| %-20s |", resultSet.getMetaData().getColumnName(i)));
             }
-            System.out.print("\n--------------------------------------------------------------------------------------------------------------------------------------------------\n");
+            System.out.println();
+            System.out.print("------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n");
             // Print table data with indentation
             while (resultSet.next()) {
                 for (int i = 1; i <= columnCount; i++) {
@@ -36,7 +37,7 @@ public class ViewBorrowedBooks {
                 System.out.println();
             }
 
-            System.out.print("--------------------------------------------------------------------------------------------------------------------------------------------------\n");
+            System.out.print("------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n");
 
 
             // Close the resources
@@ -62,4 +63,5 @@ public class ViewBorrowedBooks {
             System.out.println("Error during login: " + e.getMessage());
         }    
     }
+
 }
