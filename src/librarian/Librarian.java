@@ -8,11 +8,7 @@ import java.util.Scanner;
 import common.SQL;
 
 public class Librarian {
-    String username;
-    public Librarian(String username){
-        this.username = username;
-        LibrarianMenu.librarianMenu();
-    }
+    static int UserID;
     public static void login(){
         try {
             Connection c = SQL.makeConnection();
@@ -23,13 +19,14 @@ public class Librarian {
             System.out.print("Enter your password: ");
             String password = s.next();
 
-            PreparedStatement ps = c.prepareStatement("select password from user where username = ? and usertype = 'Librarian'");
+            PreparedStatement ps = c.prepareStatement("select UserID, password from user where username = ? and usertype = 'Librarian'");
             ps.setString(1, username);
             ResultSet resultSet = ps.executeQuery();
 
             if(resultSet.next()){
                 if(password.equals(resultSet.getString("password"))){
-                    new Librarian(username);
+                    UserID = resultSet.getInt("UserID");
+                    LibrarianMenu.librarianMenu();
                 }
                 else{
                     System.out.println("Wrong password, try again!");

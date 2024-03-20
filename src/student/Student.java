@@ -8,14 +8,17 @@ import common.SQL;
 
 public class Student {
 
-    String username;
-    public Student(String username){
-        this.username = username;
-        System.out.println("Login Successful");
+    int UserID;
+    public Student(int UserID){
+        this.UserID = UserID;
+        System.out.println("\nLogin Successful\n");
+        StudentMenu.displayMenu(UserID);
+
     }
 
     public static void login(){
         try {
+            int userID;
             Connection c = SQL.makeConnection();
             System.out.print("Enter your username: ");
             @SuppressWarnings("resource")
@@ -24,13 +27,14 @@ public class Student {
             System.out.print("Enter your password: ");
             String password = s.next();
 
-            PreparedStatement ps = c.prepareStatement("select password from user where username = ? and usertype = 'Student'");
+            PreparedStatement ps = c.prepareStatement("select UserID, password from user where username = ? and usertype = 'Student'");
             ps.setString(1, username);
             ResultSet resultSet = ps.executeQuery();
 
             if(resultSet.next()){
                 if(password.equals(resultSet.getString("password"))){
-                    new Student(username);
+                    userID = resultSet.getInt("userID");
+                    new Student(userID);
                 }
                 else{
                     System.out.println("Wrong password, try again!");
