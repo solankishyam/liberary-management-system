@@ -9,7 +9,7 @@ public class SQL {
         String password = "sarthak123";
         Connection c;
 
-            Class.forName("com.mysql.cj.jdbc.Driver");
+            Class.forName("com.mysql.jdbc.Driver");
             c = DriverManager.getConnection(url, username, password);
 
         return c;

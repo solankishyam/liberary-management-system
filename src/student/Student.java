@@ -17,9 +17,12 @@ public class Student {
     }
 
     public static void login(){
+        System.out.println("In student login");
         try {
             int userID;
+            System.out.println("Making connection");
             Connection c = SQL.makeConnection();
+            System.out.println("Connection made");
             System.out.print("Enter your username: ");
             @SuppressWarnings("resource")
             Scanner s = new Scanner(System.in);
@@ -46,7 +49,7 @@ public class Student {
             }
             
         } catch (Exception e) {
-            System.out.println(e.getMessage());
+            System.out.println(e);
         }
     }
 
